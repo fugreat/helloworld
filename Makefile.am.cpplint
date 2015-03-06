@@ -1,0 +1,9 @@
+CPPLINT = cpplint.py
+
+cpplint:
+	-$(CPPLINT) `find $(top_srcdir)/src $(top_srcdir)/include -name "*.cc" -o -name "*.h"`
+
+cpplint-xml:
+	-$(CPPLINT) `find $(top_srcdir)/src $(top_srcdir)/include -name "*.cc" -o -name "*.h"` > cpplint-xml
+
+CPPLINT_CLEANFILES = cpplint.xml

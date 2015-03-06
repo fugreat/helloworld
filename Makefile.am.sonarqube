@@ -1,0 +1,8 @@
+SONAR_RUNNER = sonar-runner
+
+sonar-prepare: $(SONAR_PREPARE)
+
+sonar-incremental: sonar-prepare
+	        $(SONAR_RUNNER) -Dproject.settings=./.sonar-project -Dsonar.analysis.mode=incremental -Dsonar.issuesReport.console.enable=true -Dsonar.issuesReport.html.enable=true
+
+SONAR_CLEANFILES = -r .sonar

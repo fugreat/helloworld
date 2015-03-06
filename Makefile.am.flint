@@ -1,0 +1,16 @@
+FLINT_PATH = /apps/flexelint/9.0
+FLINT = $(FLINT_PATH)/flint.Linux
+
+flint:
+	cp -pr $(FLINT_PATH)/supp/gcc flint-gcc
+	cp -p $(FLINT_PATH)/supp/lnt/env-xml.lnt flint-gcc
+	cd flint-gcc && make -f co-gcc.mak GCC_BIN=$(CC) GXX_BIN=$(CXX)
+	$(FLINT) -i./flint-gcc -i$(srcdir)/include -zero co-gcc.lnt $(srcdir)/src/*.c
+
+flint-xml:
+	cp -pr $(FLINT_PATH)/supp/gcc flint-gcc
+	cp -p $(FLINT_PATH)/supp/lnt/env-xml.lnt flint-gcc
+	cd flint-gcc && make -f co-gcc.mak GCC_BIN=$(CC) GXX_BIN=$(CXX)
+	$(FLINT) -i./flint-gcc -i$(srcdir)/include -zero co-gcc.lnt env-xml.lnt $(srcdir)/src/*.c > flint.xml
+
+FLINT_CLEANFILES = -r flint-gcc flint.xml

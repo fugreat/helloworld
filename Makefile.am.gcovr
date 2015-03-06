@@ -1,0 +1,9 @@
+GCOVR = gcovr
+
+gcovr:
+	$(GCOVR) -r .
+
+gcovr-xml:
+	$(GCOVR) -r . --xml-pretty > coverage.xml
+
+GCOVR_CLEANFILES = coverage.xml

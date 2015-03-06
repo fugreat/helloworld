@@ -1,0 +1,25 @@
+# Compiled object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so*
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# Compiled executables
+hello
+
+# Autotools issues
+.deps
+.libs
+
+# Code Coverage
+*.gcda
+*.gcno
+*.gcov

@@ -1,0 +1,38 @@
+# Compiled object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so*
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# Compiled executables
+test-suite.log
+
+hello_test
+hello_test.exe
+hello_test.log
+hello_test.trs
+
+world_test
+world_test.exe
+world_test.log
+world_test.trs
+
+# Autotools issues
+.deps
+.libs
+
+# Code Coverage
+*.gcno
+*.gcda
+*.gcov
+
+# Valgrind
+valgrind-*.xml
