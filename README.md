@@ -22,15 +22,15 @@ Subset of targets available in this sample application:
     $ make cppcheck-xml
     $ make flint
     $ make flint-xml
-    $ make sonar-preare
+    $ make sonar-prepare
     $ make sonar-incremental
-    $ make install
     $ make doxygen-doc
+    $ make install
 
-The results of those targets will run unit tests and create a gtest compatible
-XML report, create a valgrind memory leak report in XML format,
-create gcov code coverage in XML format, generate static analysis reports
-(cppcheck and flexelint), create a SonarQube Incremental Issue Report and
+Those targets will run unit tests and create a gtest compatible XML report,
+create a valgrind memory leak report in XML format, create gcov code coverage
+in XML format, generate static analysis reports (cppcheck and flexelint),
+create a SonarQube Incremental Issue Report, generate API documentation and
 install hello application and world library+header file under /usr/local.
 
 Metrics produced include the following formats that can be imported into
