@@ -1,3 +1,5 @@
+ACLOCAL_AMFLAGS = -I m4
+
 SUBDIRS = src test
 
 # Run ./autogen.sh to have autotools create configure script and Makefile
