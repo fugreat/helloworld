@@ -19,14 +19,15 @@ class world_pimpl;
 class world {
  public:
      world();
-     world(const world &w);
+     world(const world &other);
+     world& operator=(const world &other);
      ~world();
 
      /**
       * @brief get world string
       * @retval string "World"
       */
-     std::string get_world(void);
+     std::string get_world(void) const;
 
  private:
      world_pimpl *worldp;

@@ -23,11 +23,19 @@ world::~world() {
     delete worldp;
 }
 
-world::world(const world &w) {
+world::world(const world &other) {
     worldp = new world_pimpl;
-    *worldp = *w.worldp;
+    *worldp = *other.worldp;
 }
 
-std::string world::get_world(void) {
+world& world::operator=(const world &other) {
+    if (this != &other) {
+        world tmp(other);
+        std::swap(worldp, tmp.worldp);
+    }
+    return *this;
+}
+
+std::string world::get_world(void) const {
     return worldp->s;
 }

@@ -1,9 +1,9 @@
 //============================================================================
 // Copyright (C) 2015 Fujitsu Network Communications, Inc. All Rights Reserved
 //============================================================================
-#include <world.h>
 #include "hello.h"
-
+#include <world.h>
+#include <algorithm>
 
 /**
  * @brief hello private implementation
@@ -22,14 +22,21 @@ hello::~hello(void) {
     delete hellop;
 }
 
-hello::hello(const hello &h) {
+hello::hello(const hello &other) {
     hellop = new hello_pimpl;
-    *hellop = *h.hellop;
+    *hellop = *other.hellop;
 }
 
-std::string hello::get_hello(void) {
+hello& hello::operator=(const hello &other) {
+    if (this != &other) {
+        hello tmp(other);
+        std::swap(hellop, tmp.hellop);
+    }
+    return *this;
+}
+
+std::string hello::get_hello(void) const {
     std::string s;
-    world w;
 
     s = "Hello, "+ hellop->w.get_world() + "!\n";
 

@@ -18,14 +18,15 @@ class hello_pimpl;
 class hello {
  public:
      hello();
-     hello(const hello &h);
+     hello(const hello &other);
+     hello& operator=(const hello &other);
      ~hello();
 
      /**
       * @brief get hello string
       * @retval string "Hello, World!\n".
       */
-     std::string get_hello(void);
+     std::string get_hello(void) const;
 
  private:
      hello_pimpl *hellop;
