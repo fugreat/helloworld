@@ -20,6 +20,8 @@ Subset of targets available in this sample application:
     $ make gcovr-xml
     $ make cppcheck
     $ make cppcheck-xml
+    $ make cpplint
+    $ make cpplint-xml
     $ make flint
     $ make flint-xml
     $ make sonar-prepare
@@ -29,9 +31,10 @@ Subset of targets available in this sample application:
 
 Those targets will run unit tests and create a gtest compatible XML report,
 create a valgrind memory leak report in XML format, create gcov code coverage
-in XML format, generate static analysis reports (cppcheck and flexelint),
-create a SonarQube Incremental Issue Report, generate API documentation and
-install hello application and world library+header file under /usr/local.
+in XML format, generate static analysis reports (cppcheck, cpplint, and
+flexelint), create a SonarQube Incremental Issue Report, generate API
+documentation and install hello application and world library+header file
+under /usr/local.
 
 Metrics produced include the following formats that can be imported into
 various CI and QA tools such as Jenkins and SonarQube:
@@ -40,8 +43,13 @@ various CI and QA tools such as Jenkins and SonarQube:
  * test/gtest.xml
  * coverage.xml
  * cppcheck.xml
+ * cpplint.txt
+ * cpplint.xml
  * flint.xml
  * .sonar/issues-report/issues-report.html
 
 PDF, HTML, and MAN pages will exist under doxygen-doc.
 
+Eclipse/vim/emacs users can use 'make all analyze' to both compile and
+perform static analysis.  The reports will be structured such that
+these tools can parse messages and provide quick jumps.

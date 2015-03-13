@@ -1,13 +1,26 @@
 FLINT_PATH = /apps/flexelint/9.0
 FLINT = $(FLINT_PATH)/flint.Linux
 
+# Output a GNU gcc-ish format so that eclipse/vim/emacs/etc can parse
+# the results.
+# Print on one line with full path file names.
+FLINT_GNU_OUTPUT = -hF1 +ffn
+# GNU gcc format with column info.
+FLINT_GNU_OUTPUT += -"format=%(%f:%l:%C:%) %t %n: %m"
+# Switch off reference locations shown in brackets
+FLINT_GNU_OUTPUT += -frl
+# Do not break lines
+FLINT_GNU_OUTPUT += -width\(0\)
+# Make sure no foreign includes change the output format
+FLINT_GNU_OUTPUT += +flm
+
 flint-gcc:
 	cp -pr $(FLINT_PATH)/supp/gcc flint-gcc
 	cp -p $(FLINT_PATH)/supp/lnt/env-xml.lnt flint-gcc
 	cd flint-gcc && make -f co-gcc.mak GCC_BIN=$(CC) GXX_BIN=$(CXX)
 
 flint: flint-gcc
-	$(FLINT) -i./flint-gcc -i$(srcdir)/include -zero co-gcc.lnt $(srcdir)/src/*.cc
+	$(FLINT) -i./flint-gcc -i$(srcdir)/include -zero co-gcc.lnt $(FLINT_GNU_OUTPUT) $(srcdir)/src/*.cc
 
 flint-xml: flint-gcc
 	$(FLINT) -i./flint-gcc -i$(srcdir)/include -zero co-gcc.lnt env-xml.lnt $(srcdir)/src/*.cc > flint.xml
