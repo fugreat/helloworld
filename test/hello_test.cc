@@ -3,7 +3,7 @@
  * @brief hello Unit Tests
  */
 #include <assert.h>
-#include "hello.h"
+#include "../src/hello.h"
 
 static void hello_test(void)
 {

@@ -1,5 +1,6 @@
-# Point to public and private API that will be under test
-AM_CPPFLAGS = -I$(top_srcdir)/include -I$(top_srcdir)/src
+# Point to public API that will be under test. Private can use paths
+# in #include.
+AM_CPPFLAGS = -I$(top_srcdir)/include
 
 # List of executables to run as part of 'make check' target.
 TESTS = hello_test$(EXEEXT) world_test$(EXEEXT)

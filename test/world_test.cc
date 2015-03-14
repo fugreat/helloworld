@@ -4,7 +4,7 @@
  */
 #include <assert.h>
 #include <string>
-#include "world.h"
+#include <world.h>
 
 static void world_test(void)
 {
