@@ -12,33 +12,76 @@ compiler/linkers and their command line flags.
 Subset of targets available in this sample application:
 
     $ ./autogen.sh
-    $ ./configure --enable-gcov --enable-valgrind --silent
+    $ ./configure --prefix=./debug --enable-gcov --enable-valgrind --silent
     $ make
+    $ make doxygen-doc
+
+The above installs and/or generates missing autotools files, runs configures
+to install in a local debug directory as well as enable code coverage and
+valgrind support during unit testing, compiles the library and application,
+and generates API documentation in HTML, PDF, and man pages format.
+
+By default, autotools generates applications/libraries with "-O2 -g" so
+that they can be debugged.  If you prefer optimization turned off during
+debugging, you can manually set default flags with configure:
+
+    $ ./configure CXXFLAGS="-O0 -g" --prefix=./debug --enable-gcov --enable-valgrind --silent
+
+It is safe to always have debug enabled because you can chose to install with
+or without debug symbols by choice of install target. Also, release applications
+and libraries should not have gcov enabled and so the '--enable-gcov' should
+be removed for most usecases of 'make install-strip'.
+
+    $ make install
+    $ make install-strip
+
+The following unit test related targets exist.  They run unit tests using
+automake's test framework and display code coverage reports on the terminal.
+
     $ make check
-    $ make gtest-xml
     $ make gcovr
-    $ make gcovr-xml
+
+The following static analysis targets exist that are useful when ran from
+a terminal or inside Vim/Eclipse/Emacs.  Since all reports are gnu gcc
+compatible, most editors will populat their quickfix/problems windows
+with the issues found.
+
     $ make cppcheck
-    $ make cppcheck-xml
     $ make cpplint
-    $ make cpplint-xml
     $ make flint
+
+In vim use ':make analyze' to run all possible static analysis targets and
+populate its quickfix list with the results. Eclipse's Problem window
+can also be populated by changing the build target to 'analyze' and running
+a build.
+
+    $ make analyze
+
+The following targets exist that are useful when used with automation
+tools such as Jenkins and SonarQube. They generate Google Test compatible
+XML from automakes test status, Cobertura compatible XML from gcov data,
+dumps cppcheck's data to its own XML format, converts cpplint.py's output
+to checkstyle compatible XML, and dumps flexelint to its own XML format.
+
+    $ make gtest-xml
+    $ make gcovr-xml
+    $ make cppcheck-xml
+    $ make cpplint-xml
     $ make flint-xml
+
+'sonar-prepare' will run all previous XML targets in preperation for interacting
+with SonarQube. 'sonar-incremental' will also generate that data and create an
+incremental issues report.
+
     $ make sonar-prepare
     $ make sonar-incremental
-    $ make doxygen-doc
-    $ make install
 
-Those targets will run unit tests and create a gtest compatible XML report,
-create a valgrind memory leak report in XML format, create gcov code coverage
-in XML format, generate static analysis reports (cppcheck, cpplint, and
-flexelint), create a SonarQube Incremental Issue Report, generate API
-documentation and install hello application and world library+header file
-under /usr/local.
+The above targets will produce the following files:
 
-Metrics produced include the following formats that can be imported into
-various CI and QA tools such as Jenkins and SonarQube:
-
+ * src/hello
+ * src/libworld.la
+ * test/hello_test
+ * test/world_test
  * test/valgrind-\*.xml
  * test/gtest.xml
  * coverage.xml
@@ -47,9 +90,7 @@ various CI and QA tools such as Jenkins and SonarQube:
  * cpplint.xml
  * flint.xml
  * .sonar/issues-report/issues-report.html
+ * doxygen-doc/*.pdf
+ * doxygen-doc/html
+ * doxygen-doc/man/man3
 
-PDF, HTML, and MAN pages will exist under doxygen-doc.
-
-Eclipse/vim/emacs users can use 'make all analyze' to both compile and
-perform static analysis.  The reports will be structured such that
-these tools can parse messages and provide quick jumps.
