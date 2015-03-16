@@ -10,6 +10,6 @@ sonar.cxx.includeDirectories=/usr/include,include
 sonar.cxx.cppcheck.reportPath=cppcheck.xml
 sonar.cxx.compiler.parser=GCC
 sonar.cxx.compiler.reportPath=buildlog.txt
-sonar.xunit.reportPath=test/*-gtest.xml
+sonar.cxx.xunit.reportPath=test/*-gtest.xml
 sonar.cxx.valgrind.reportPath=test/*-valgrind.xml
 sonar.cxx.coverage.reportPath=coverage.xml
