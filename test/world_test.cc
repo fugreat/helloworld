@@ -5,18 +5,15 @@
 #include <assert.h>
 #include <string>
 #include <world.h>
+#include "gtest/gtest.h"
 
-static void world_test(void)
+class world_test : public ::testing::Test {
+};
+
+TEST_F(world_test, get_world)
 {
     world w;
     std::string s = w.get_world();
 
     assert(s == "World");
-}
-
-int main(int argc, char *argv[])
-{
-    world_test();
-
-    return 0;
 }

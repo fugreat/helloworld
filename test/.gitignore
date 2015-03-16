@@ -15,15 +15,12 @@
 # Compiled executables
 test-suite.log
 
-hello_test
-hello_test.exe
-hello_test.log
-hello_test.trs
-
-world_test
-world_test.exe
-world_test.log
-world_test.trs
+helloworld_unittest
+helloworld_unittest.log
+helloworld_unittest.trs
+helloworld_unittest.xml
+helloworld_unittest-gtest.xml
+helloworld_unittest-valgrind.xml
 
 # Autotools issues
 .deps
@@ -34,5 +31,3 @@ world_test.trs
 *.gcda
 *.gcov
 
-# Valgrind
-valgrind-*.xml

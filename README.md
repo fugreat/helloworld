@@ -58,12 +58,11 @@ a build.
     $ make analyze
 
 The following targets exist that are useful when used with automation
-tools such as Jenkins and SonarQube. They generate Google Test compatible
-XML from automakes test status, Cobertura compatible XML from gcov data,
-dumps cppcheck's data to its own XML format, converts cpplint.py's output
-to checkstyle compatible XML, and dumps flexelint to its own XML format.
+tools such as Jenkins and SonarQube. They generate Cobertura compatible XML
+from gcov data, dumps cppcheck's data to its own XML format, converts
+cpplint.py's output to checkstyle compatible XML, and dumps flexelint to its
+own XML format.
 
-    $ make gtest-xml
     $ make gcovr-xml
     $ make cppcheck-xml
     $ make cpplint-xml
@@ -80,10 +79,9 @@ The above targets will produce the following files:
 
  * src/hello
  * src/libworld.la
- * test/hello_test
- * test/world_test
- * test/valgrind-\*.xml
- * test/gtest.xml
+ * test/helloworld_unittest.log
+ * test/helloworld_unittest-gtest.xml
+ * test/helloworld_unittest-valgrind.xml
  * coverage.xml
  * cppcheck.xml
  * cpplint.txt

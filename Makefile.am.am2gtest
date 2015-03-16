@@ -1,6 +1,0 @@
-AM2GTEST = am2gtest.py
-
-gtest-xml:
-	cd test && $(AM2GTEST) > $(abs_top_builddir)/gtest.xml
-
-GTEST_CLEANFILES = $(abs_top_builddir)/gtest.xml

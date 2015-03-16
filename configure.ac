@@ -39,7 +39,7 @@ dnl parallel-tests - default to parallel test runner
 dnl
 dnl See Section automake's Section 17.2, ' List of Automake options',
 dnl for more details.
-AM_INIT_AUTOMAKE([1.11 -Wall -Werror -Wno-portability foreign parallel-tests])
+AM_INIT_AUTOMAKE([1.11 -Wall -Werror -Wno-portability foreign parallel-tests subdir-objects])
 dnl Display little during compiles.  Use 'make V=1' to be verbose.
 AM_SILENT_RULES([yes])
 dnl Default ismaintainer-mode enabled *but* without --disable-maintainer-mode
@@ -109,7 +109,8 @@ AS_IF([test "x$enable_valgrind" = "xyes"],
        [have_valgrind=no])
 
 AS_IF([test "x$have_valgrind" = "xyes"],
-      [VALGRIND="valgrind --quiet --leak-check=full --error-exitcode=1 --xml=yes --xml-file=valgrind-%p.xml"])
+      [VALGRINDOPT="--enable-valgrind"])
+AC_SUBST(VALGRINDOPT)
 
 dnl Enable gcov code coverage compiler options. This is useful for testing both
 dnl host based compiles and cross compiles.  Since code coverage tests need

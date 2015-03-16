@@ -26,9 +26,10 @@ build
 
 # Static Analysis
 cppcheck.xml
+cpplint.txt
+cpplint.xml
 flint.xml
 flint-gcc
 
 # Unit Test
-gtest.xml
 coverage.xml

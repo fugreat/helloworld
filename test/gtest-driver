@@ -1,0 +1,41 @@
+#! /bin/sh
+usage_error ()
+{
+  echo "$0: $*" >&2
+  print_usage >&2
+  exit 2
+}
+
+print_usage ()
+{
+  cat <<END
+Usage:
+  gtest-driver --enable-valgrind -- COMMAND
+END
+}
+
+enable_valgrind=no
+while test $# -gt 0; do
+  case $1 in
+  --help) print_usage; exit $?;;
+  --enable-valgrind) enable_valgrind=yes;;
+  --) shift; break;;
+  -*) usage_error "invalid option: '$1'";;
+  esac
+  shift
+done
+
+eval last=\${$#}
+
+logname=`/bin/basename $last`
+
+valgrind_cmd=""
+if [ "${enable_valgrind}x" = "yesx" ]; then
+    /bin/rm -f ${logname}-valgrind.xml
+    valgrind_cmd="valgrind --quiet --leak-check=full --error-exitcode=1 --xml=yes --xml-file=${logname}-valgrind.xml"
+fi
+/bin/rm -f ${logname}-gtest.xml
+echo HELP
+echo ${valgrind_cmd} $* --gtest_output=xml:${logname}-gtest.xml
+${valgrind_cmd} $* --gtest_output=xml:${logname}-gtest.xml
+exit $?

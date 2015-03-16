@@ -1,23 +1,24 @@
 # Point to public API that will be under test. Private can use paths
 # in #include.
-AM_CPPFLAGS = -I$(top_srcdir)/include
+AM_CPPFLAGS = -I$(top_srcdir)/include -DGTEST_HAS_PTHREAD=0
+
+EXTRA_DIST = gtest-driver
 
 # List of executables to run as part of 'make check' target.
-TESTS = hello_test$(EXEEXT) world_test$(EXEEXT)
+TESTS = helloworld_unittest$(EXEEXT)
 # List of targets to build as part of 'make check' target.  These are not
 # installed.
 check_PROGRAMS = $(TESTS)
-TESTS_ENVIRONMENT = $(VALGRIND)
+TESTS_ENVIRONMENT = $(srcdir)/gtest-driver $(VALGRINDOPT) --
 
-hello_test_SOURCES = hello_test.cc
+helloworld_unittest_SOURCES = helloworld_unittest.cc hello_test.cc \
+			      world_test.cc gtest/gtest-all.cc gtest/gtest.h
 # Note build directory and srcdir do not have to be same place.  This is how
 # to support a single copy of source code used to cross compile to multiple
 # hosts.
-hello_test_LDADD = $(top_builddir)/src/hello.$(OBJEXT) $(top_builddir)/src/world.$(OBJEXT)
-hello_test_LDFLAGS = -no-install
+helloworld_unittest_LDADD = $(top_builddir)/src/hello.$(OBJEXT) \
+		   $(top_builddir)/src/world.$(OBJEXT)
+helloworld_unittest_LDFLAGS = -no-install
 
-world_test_SOURCES = world_test.cc
-world_test_LDADD = $(top_builddir)/src/world.$(OBJEXT)
-world_test_LDFLAGS = -no-install
-
-DISTCLEANFILES = *.gcov *.gcda *.gcno valgrind-*.xml
+DISTCLEANFILES = *.gcov *.gcda *.gcno *-gtest.xml *-valgrind.xml \
+		 gtest/*.gcov gtest/*.gcda gtest/*.gcno

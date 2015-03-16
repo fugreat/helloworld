@@ -4,18 +4,15 @@
  */
 #include <assert.h>
 #include "../src/hello.h"
+#include "gtest/gtest.h"
 
-static void hello_test(void)
+class hello_test : public ::testing::Test {
+};
+
+TEST_F(hello_test, get_hello)
 {
     hello h;
     std::string s = h.get_hello();
 
     assert(s == "Hello, World!\n");
-}
-
-int main(int argc, char *argv[])
-{
-    hello_test();
-
-    return 0;
 }
