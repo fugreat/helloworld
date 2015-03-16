@@ -1,9 +1,9 @@
 GCOVR = gcovr
 
 gcovr:
-	$(GCOVR) -r .
+	$(GCOVR) -r . -e test
 
 gcovr-xml:
-	$(GCOVR) -r . --xml-pretty > coverage.xml
+	$(GCOVR) -r . -e test --xml-pretty > coverage.xml
 
 GCOVR_CLEANFILES = coverage.xml

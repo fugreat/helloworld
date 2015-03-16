@@ -2,7 +2,7 @@
 // Copyright (C) 2015 Fujitsu Network Communications, Inc. All Rights Reserved
 //============================================================================
 #include <iostream>
-#include "./hello.h"
+#include "hello.h"
 
 int main(int argc, const char *argv[]) {
     (void)argc;
