@@ -23,11 +23,11 @@ TEST_F(hello_test, assign)
     hello h1;
     hello h2;
 
-    h2 = h1;
+    // Return type of assignment operator is current object by reference.
+    ASSERT_EQ(&(h2 = h1), &h2);
 
-    std::string s = h2.get_hello();
-
-    ASSERT_EQ(s, "Hello, World!\n");
+    // Test logic related to self assignment
+    ASSERT_EQ(&(h1 = h1), &h1);
 }
 
 TEST_F(hello_test, get_hello)

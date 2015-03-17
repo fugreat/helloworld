@@ -23,11 +23,11 @@ TEST_F(world_test, assign)
     world w1;
     world w2;
 
-    w2 = w1;
+    // Return type of assignment operator is current object by reference.
+    ASSERT_EQ(&(w2 = w1), &w2);
 
-    std::string s = w2.get_world();
-
-    ASSERT_EQ(s, "World");
+    // Test logic related to self assignment
+    ASSERT_EQ(&(w1 = w1), &w1);
 }
 
 TEST_F(world_test, get_world)
