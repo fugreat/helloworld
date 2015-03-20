@@ -2,8 +2,8 @@
 // Copyright (C) 2015 Fujitsu Network Communications, Inc. All Rights Reserved
 //============================================================================
 #include "hello.h"
-#include <world.h>
 #include <algorithm>
+#include "world.h"
 
 /**
  * @brief hello private implementation

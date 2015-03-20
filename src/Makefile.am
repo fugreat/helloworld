@@ -1,5 +1,5 @@
 # Path to Exernal API header files
-AM_CPPFLAGS = -I$(top_srcdir)/include $(WARNING_CPPFLAGS)
+AM_CPPFLAGS = $(WARNING_CPPFLAGS)
 AM_CXXFLAGS = $(WARNING_CXXFLAGS)
 
 # List of targets to build and install in --bindir
@@ -14,7 +14,7 @@ hello_LDADD = libworld.la
 lib_LTLIBRARIES = libworld.la
 
 # List of header files to install in --includedir.
-include_HEADERS = $(top_srcdir)/include/world.h
+include_HEADERS = world.h
 
 # List of source files used; including headers; used to produce libworld.la
 # LIBTOOL based library.

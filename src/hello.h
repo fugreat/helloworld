@@ -6,8 +6,8 @@
  * @file hello.h
  * @brief hello API
  */
-#ifndef SRC_HELLO_H_
-#define SRC_HELLO_H_
+#ifndef HELLO_H_
+#define HELLO_H_
 #include <string>
 
 class hello_pimpl;
@@ -32,4 +32,4 @@ class hello {
      hello_pimpl *hellop;
 };
 
-#endif  // SRC_HELLO_H_
+#endif  // HELLO_H_

@@ -1,7 +1,8 @@
 //============================================================================
 // Copyright (C) 2015 Fujitsu Network Communications, Inc. All Rights Reserved
 //============================================================================
-#include <world.h>
+#include "world.h"
+#include <algorithm>
 
 /**
  * @brief world private implementation

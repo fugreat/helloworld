@@ -1,6 +1,4 @@
-# Point to public API that will be under test. Private can use paths
-# in #include.
-AM_CPPFLAGS = -I$(top_srcdir)/include -DGTEST_HAS_PTHREAD=0
+AM_CPPFLAGS = -DGTEST_HAS_PTHREAD=0
 
 EXTRA_DIST = gtest-driver
 
