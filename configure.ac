@@ -127,10 +127,10 @@ AS_IF([test "x$enable_gcov" = "xyes"],
        dnl Optimizations will defeat code coverage so remove those.
        changequote({,})
        CFLAGS=`echo "$CFLAGS" | sed -e 's/-O[0-9]*//g'`
-       CXXFLAGS=`echo "$CFLAGS" | sed -e 's/-O[0-9]*//g'`
+       CXXFLAGS=`echo "$CXXFLAGS" | sed -e 's/-O[0-9]*//g'`
        changequote([,])
        CFLAGS="$CFLAGS -O0 -fprofile-arcs -ftest-coverage"
-       CXXFLAGS="$CFLAGS -O0 -fprofile-arcs -ftest-coverage"
+       CXXFLAGS="$CXXFLAGS -O0 -fprofile-arcs -ftest-coverage"
        LDFLAGS="$LDFLAGS -lgcov"
        ])
 
