@@ -5,7 +5,7 @@ This compiles an application called hello that prints "Hello, World!"
 to stdout and also creates a library that provides an API to print
 "World" to stdout.
 
-* note that for a freshly cloned repository, must execute ./autogen.sh first *
+* note that for a freshly cloned repository, must execute ./autogen.sh first
 
 Run './configure --help' to see options to tune installation, set build target,
 customize feature set, customize optional external packages used, and modify
