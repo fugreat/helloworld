@@ -18,7 +18,7 @@ Subset of targets available in this sample application:
     $ make
     $ make doxygen-doc
 
-The above installs and/or generates missing autotools files, runs configures
+The above installs and/or generates missing autotools files, runs configure
 to install in a local debug directory as well as enable code coverage and
 valgrind support during unit testing, compiles the library and application,
 and generates API documentation in HTML, PDF, and man pages format.
@@ -45,7 +45,7 @@ automake's test framework and display code coverage reports on the terminal.
 
 The following static analysis targets exist that are useful when ran from
 a terminal or inside Vim/Eclipse/Emacs.  Since all reports are gnu gcc
-compatible, most editors will populat their quickfix/problems windows
+compatible, most editors will populate their quickfix/problems windows
 with the issues found.
 
     $ make cppcheck
