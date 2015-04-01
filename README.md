@@ -14,7 +14,7 @@ compiler/linkers and their command line flags.
 Subset of targets available in this sample application:
 
     $ ./autogen.sh
-    $ ./configure --prefix=./debug --enable-gcov --enable-valgrind --silent
+    $ ./configure --prefix=`pwd`/debug --enable-gcov --enable-valgrind --silent
     $ make
     $ make doxygen-doc
 
@@ -27,7 +27,7 @@ By default, autotools generates applications/libraries with "-O2 -g" so
 that they can be debugged.  If you prefer optimization turned off during
 debugging, you can manually set default flags with configure:
 
-    $ ./configure CXXFLAGS="-O0 -g" --prefix=./debug --enable-gcov --enable-valgrind --silent
+    $ ./configure CXXFLAGS="-O0 -g" --prefix=`pwd`/debug --enable-gcov --enable-valgrind --silent
 
 It is safe to always have debug enabled because you can chose to install with
 or without debug symbols by choice of install target. Also, release applications
