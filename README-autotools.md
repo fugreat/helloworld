@@ -43,7 +43,6 @@ Project Layout
 The following directory structure exists with the following autotools related
 files.  Each will be described in their own subsection.
 
-----
     helloworld/
       m4/
       Makefile.am
@@ -53,7 +52,6 @@ files.  Each will be described in their own subsection.
         Makefile.am
       test/
         Makefile.am
-----
 
 m4/ directory
 -------------
@@ -85,10 +83,10 @@ The above line causes the following #defines to exist in your application:
  * PACKAGE_STRING - "helloworld 1.0"
  * PACKAGE_BUGREPORT - "http://rtx-swtl-git.fnc.net.local/projects/iprepo/repos/helloworld/browse"
 
-TODO: Detecting external header files that require no library linking.
-TODO: Detecting external header files and matching libraries.
-TODO: Detect external executables (IDL compiler for example).
-TODO: Making external item optional feature from command line.
+ * TODO: Detecting external header files that require no library linking.
+ * TODO: Detecting external header files and matching libraries.
+ * TODO: Detect external executables (IDL compiler for example).
+ * TODO: Making external item optional feature from command line.
 
 src/Makefile.am
 ---------------
@@ -109,7 +107,7 @@ Items that will need updating or added when adding new files to template:
  * lib_LTLIBRARIES - list of libtool based libraries to created and install
   under --libdir; which defaults to /usr/local/lib or /usr/local/lib64
   depending on target architecture.
- * nobase_include_HEADERS = list of header files to install under --includedir;
+ * nobase_include_HEADERS - list of header files to install under --includedir;
    which defalts to /usr/local/include. nobase  causes subdirectory
    hierarchy to be carried  over during install.
  * AM_CPPFLAGS/AM_CXXFLAGS/AM_LDFLAGS - compiler flags that should be used
