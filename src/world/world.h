@@ -1,36 +1,39 @@
-//============================================================================
-// Copyright (C) 2015 Fujitsu Network Communications, Inc. All Rights Reserved
-//============================================================================
-
 /**
- * @file world.h
- * @brief world API
+ * @file      world.h
+ * @copyright (C) 2015 Fujitsu Network Communications, Inc.
+ * @brief     World API
+ *
+ * @author    Your favorite person
+ * @date      3/2015
+ *
+ * Document Reference :
  */
+
 #ifndef WORLD_WORLD_H_
 #define WORLD_WORLD_H_
 
 #include <string>
 
-class world_pimpl;
+class World_pimpl;
 
 /**
- * @brief Example world class
+ * @brief Example World class
  */
-class world {
+class World {
  public:
-     world();
-     world(const world &other);
-     world& operator=(const world &other);
-     ~world();
+  World(void);
+  World(const World &other);
+  World& operator=(const World &other);
+  ~World(void);
 
-     /**
-      * @brief get world string
-      * @retval string "World"
-      */
-     std::string get_world(void) const;
+  /**
+   * @brief get World string
+   * @retval string "World"
+   */
+  std::string get_world(void) const;
 
  private:
-     world_pimpl *worldp;
+  World_pimpl *worldp;
 };
 
-#endif  // WORLD_WORLD_H_
+#endif

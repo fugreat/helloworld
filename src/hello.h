@@ -1,35 +1,39 @@
-//============================================================================
-// Copyright (C) 2015 Fujitsu Network Communications, Inc. All Rights Reserved
-//============================================================================
-
 /**
- * @file hello.h
- * @brief hello API
+ * @file      hello.h
+ * @copyright (C) 2015 Fujitsu Network Communications, Inc.
+ * @brief     Hello API
+ *
+ * @author    Your favorite person
+ * @date      3/2015
+ *
+ * Document Reference :
  */
+
 #ifndef HELLO_H_
 #define HELLO_H_
+
 #include <string>
 
-class hello_pimpl;
+class Hello_pimpl;
 
 /**
- * @brief Example hello class
+ * @brief Example Hello class
  */
-class hello {
+class Hello {
  public:
-     hello();
-     hello(const hello &other);
-     hello& operator=(const hello &other);
-     ~hello();
+  Hello(void);
+  Hello(const Hello &other);
+  Hello& operator=(const Hello &other);
+  ~Hello(void);
 
-     /**
-      * @brief get hello string
-      * @retval string "Hello, World!\n".
-      */
-     std::string get_hello(void) const;
+  /**
+   * @brief get Hello string
+   * @retval string "Hello, World!\n".
+   */
+  std::string get_hello(void) const;
 
  private:
-     hello_pimpl *hellop;
+  Hello_pimpl *hellop;
 };
 
-#endif  // HELLO_H_
+#endif

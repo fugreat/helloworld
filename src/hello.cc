@@ -1,44 +1,52 @@
-//============================================================================
-// Copyright (C) 2015 Fujitsu Network Communications, Inc. All Rights Reserved
-//============================================================================
+/**
+ * @file      hello.cc
+ * @copyright (C) 2015 Fujitsu Network Communications, Inc.
+ * @brief     ...
+ *
+ * @author    Your favorite person
+ * @date      3/2015
+ *
+ * Document Reference :
+ */
+
 #include "hello.h"
 #include <algorithm>
 #include "world/world.h"
 
 /**
- * @brief hello private implementation
+ * @brief Hello private implementation
  */
-class hello_pimpl {
+class Hello_pimpl {
  public:
-     hello_pimpl() {}
-     world w;
+  Hello_pimpl(void) {}
+  World w;
 };
 
-hello::hello(void) {
-    hellop = new hello_pimpl;
+Hello::Hello(void) {
+  hellop = new Hello_pimpl;
 }
 
-hello::~hello(void) {
-    delete hellop;
+Hello::~Hello(void) {
+  delete hellop;
 }
 
-hello::hello(const hello &other) {
-    hellop = new hello_pimpl;
-    *hellop = *other.hellop;
+Hello::Hello(const Hello &other) {
+  hellop = new Hello_pimpl;
+  *hellop = *other.hellop;
 }
 
-hello& hello::operator=(const hello &other) {
-    if (this != &other) {
-        hello tmp(other);
-        std::swap(hellop, tmp.hellop);
-    }
-    return *this;
+Hello& Hello::operator=(const Hello &other) {
+  if (this != &other) {
+    Hello tmp(other);
+    std::swap(hellop, tmp.hellop);
+  }
+  return *this;
 }
 
-std::string hello::get_hello(void) const {
-    std::string s;
+std::string Hello::get_hello(void) const {
+  std::string s;
 
-    s = "Hello, "+ hellop->w.get_world() + "!\n";
+  s = "Hello, "+ hellop->w.get_world() + "!\n";
 
-    return s;
+  return s;
 }
