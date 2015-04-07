@@ -83,6 +83,8 @@ The above line causes the following #defines to exist in your application:
  * PACKAGE_STRING - "helloworld 1.0"
  * PACKAGE_BUGREPORT - "http://rtx-swtl-git.fnc.net.local/projects/iprepo/repos/helloworld/browse"
 
+TODO Items
+
  * TODO: Detecting external header files that require no library linking.
  * TODO: Detecting external header files and matching libraries.
  * TODO: Detect external executables (IDL compiler for example).
