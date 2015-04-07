@@ -1,4 +1,4 @@
-AM_CPPFLAGS = -DGTEST_HAS_PTHREAD=0
+AM_CPPFLAGS = -I$(top_srcdir)/src -DGTEST_HAS_PTHREAD=0
 
 EXTRA_DIST = gtest-driver
 
@@ -15,7 +15,7 @@ helloworld_unittest_SOURCES = helloworld_unittest.cc hello_test.cc \
 # to support a single copy of source code used to cross compile to multiple
 # hosts.
 helloworld_unittest_LDADD = $(top_builddir)/src/hello.$(OBJEXT) \
-		   $(top_builddir)/src/world.$(OBJEXT)
+		   $(top_builddir)/src/world/world.$(OBJEXT)
 helloworld_unittest_LDFLAGS = -no-install
 
 DISTCLEANFILES = *.gcov *.gcda *.gcno *-gtest.xml *-valgrind.xml \

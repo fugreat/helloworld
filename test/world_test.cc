@@ -2,7 +2,7 @@
  * @file world_test.cc
  * @brief world Unit Tests
  */
-#include "../src/world.h"
+#include "world/world.h"
 #include "gtest/gtest.h"
 
 class world_test : public ::testing::Test {

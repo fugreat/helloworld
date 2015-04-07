@@ -2,7 +2,7 @@
  * @file hello_test.cc
  * @brief hello Unit Tests
  */
-#include "../src/hello.h"
+#include "hello.h"
 #include "gtest/gtest.h"
 
 class hello_test : public ::testing::Test {

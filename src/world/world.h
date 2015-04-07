@@ -6,8 +6,8 @@
  * @file world.h
  * @brief world API
  */
-#ifndef WORLD_H_
-#define WORLD_H_
+#ifndef WORLD_WORLD_H_
+#define WORLD_WORLD_H_
 
 #include <string>
 
@@ -33,4 +33,4 @@ class world {
      world_pimpl *worldp;
 };
 
-#endif  // WORLD_H_
+#endif  // WORLD_WORLD_H_

@@ -1,7 +1,7 @@
 //============================================================================
 // Copyright (C) 2015 Fujitsu Network Communications, Inc. All Rights Reserved
 //============================================================================
-#include "world.h"
+#include "world/world.h"
 #include <algorithm>
 
 /**

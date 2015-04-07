@@ -4,7 +4,7 @@ SUBDIRS = src test
 
 # Run ./autogen.sh to have autotools create configure script and Makefile
 # templates.
-EXTRA_DIST = autogen.sh README.md $(DX_CONFIG)
+EXTRA_DIST = autogen.sh README.md README-autotools.md $(DX_CONFIG)
 
 SONAR_PREPARE = cppcheck-xml cpplint-xml gcovr-xml
 
