@@ -5,23 +5,23 @@
 #include "world/world.h"
 #include "gtest/gtest.h"
 
-class world_test : public ::testing::Test {
+class World_test : public ::testing::Test {
 };
 
-TEST_F(world_test, copy)
+TEST_F(World_test, copy)
 {
-    world w1;
-    world w2(w1);
+    World w1;
+    World w2(w1);
 
     std::string s = w2.get_world();
 
     ASSERT_EQ(s, "World");
 }
 
-TEST_F(world_test, assign)
+TEST_F(World_test, assign)
 {
-    world w1;
-    world w2;
+    World w1;
+    World w2;
 
     // Return type of assignment operator is current object by reference.
     ASSERT_EQ(&(w2 = w1), &w2);
@@ -30,9 +30,9 @@ TEST_F(world_test, assign)
     ASSERT_EQ(&(w1 = w1), &w1);
 }
 
-TEST_F(world_test, get_world)
+TEST_F(World_test, get_world)
 {
-    world w;
+    World w;
     std::string s = w.get_world();
 
     ASSERT_EQ(s, "World");
