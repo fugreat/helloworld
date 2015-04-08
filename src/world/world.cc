@@ -1,42 +1,49 @@
-//============================================================================
-// Copyright (C) 2015 Fujitsu Network Communications, Inc. All Rights Reserved
-//============================================================================
+/**
+ * @file      world.cc
+ * @copyright (C) 2015 Fujitsu Network Communications, Inc.
+ * @brief     ...
+ *
+ * @author    Your favorite person
+ * @date      3/2015
+ *
+ * Document Reference :
+ */
 #include "world/world.h"
 #include <algorithm>
 
 /**
- * @brief world private implementation
+ * @brief World private implementation
  *
  * Using pimpl pattern allows private implementation to change in future
  * without requiring a recompile of hello since include file doesn't change.
  */
-class world_pimpl {
+class World_pimpl {
  public:
-     world_pimpl() : s(std::string("World")) {}
-     std::string s;
+  World_pimpl(void) : s(std::string("World")) {}
+  std::string s;
 };
 
-world::world() {
-    worldp = new world_pimpl;
+World::World(void) {
+  worldp = new World_pimpl;
 }
 
-world::~world() {
-    delete worldp;
+World::~World(void) {
+  delete worldp;
 }
 
-world::world(const world &other) {
-    worldp = new world_pimpl;
-    *worldp = *other.worldp;
+World::World(const World &other) {
+  worldp = new World_pimpl;
+  *worldp = *other.worldp;
 }
 
-world& world::operator=(const world &other) {
-    if (this != &other) {
-        world tmp(other);
-        std::swap(worldp, tmp.worldp);
-    }
-    return *this;
+World& World::operator=(const World &other) {
+  if (this != &other) {
+    World tmp(other);
+    std::swap(worldp, tmp.worldp);
+  }
+  return *this;
 }
 
-std::string world::get_world(void) const {
-    return worldp->s;
+std::string World::get_world(void) const {
+  return worldp->s;
 }
