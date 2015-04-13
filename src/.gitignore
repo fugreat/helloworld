@@ -18,6 +18,7 @@ hello
 # Autotools issues
 .deps
 .libs
+.dirstamp
 
 # Code Coverage
 *.gcda

@@ -25,6 +25,7 @@ helloworld_unittest-valgrind.xml
 # Autotools issues
 .deps
 .libs
+.dirstamp
 
 # Code Coverage
 *.gcno
