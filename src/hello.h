@@ -45,7 +45,7 @@ class Hello {
    * Some other function
    * @param whatever Some integer value
    */
-  void OtherFunction(const int whatever) {};
+  void OtherFunction(const int whatever) {}
 
  private:
   Hello_pimpl* hellop_;
@@ -53,4 +53,4 @@ class Hello {
 
 }  // namespace hello
 
-#endif
+#endif  // HELLO_H_
