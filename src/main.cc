@@ -14,7 +14,7 @@
 int main(int argc, const char *argv[]) {
   (void)argc;
   (void)argv;
-  Hello h;
+  hello::Hello h;
 
-  std::cout << h.get_hello();
+  std::cout << h.GetHello();
 }

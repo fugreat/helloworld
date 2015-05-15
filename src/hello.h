@@ -14,10 +14,19 @@
 
 #include <string>
 
+namespace hello {
+
 class Hello_pimpl;
 
 /**
- * @brief Example Hello class
+ * Hello class provides hello functionality.
+ *
+ * Use a newline and a 4-space indent to provide special formatting.  As an
+ * example, the following shows example usage in a special code box on the
+ * doxygen page:
+ *
+ *     Hello h;
+ *     (void) h.get_hello();
  */
 class Hello {
  public:
@@ -27,13 +36,21 @@ class Hello {
   ~Hello(void);
 
   /**
-   * @brief get Hello string
+   * get Hello string
    * @retval string "Hello, World!\n".
    */
-  std::string get_hello(void) const;
+  std::string GetHello(void) const;
+
+  /**
+   * Some other function
+   * @param whatever Some integer value
+   */
+  void OtherFunction(const int whatever) {};
 
  private:
-  Hello_pimpl *hellop;
+  Hello_pimpl* hellop_;
 };
+
+}  // namespace hello
 
 #endif
