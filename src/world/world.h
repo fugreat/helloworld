@@ -17,7 +17,9 @@
 class World_pimpl;
 
 /**
- * @brief Example World class
+ * World class
+ *
+ * Refer to Hello class for further doxygen examples.
  */
 class World {
  public:
@@ -27,13 +29,13 @@ class World {
   ~World(void);
 
   /**
-   * @brief get World string
+   * get World string
    * @retval string "World"
    */
-  std::string get_world(void) const;
+  std::string GetWorld(void) const;
 
  private:
-  World_pimpl *worldp;
+  World_pimpl *worldp_;
 };
 
-#endif
+#endif  // WORLD_WORLD_H_

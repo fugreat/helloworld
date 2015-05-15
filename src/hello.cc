@@ -47,7 +47,7 @@ Hello& Hello::operator=(const Hello &other) {
 std::string Hello::GetHello(void) const {
   std::string s;
 
-  s = "Hello, "+ hellop_->w.get_world() + "!\n";
+  s = "Hello, "+ hellop_->w.GetWorld() + "!\n";
 
   return s;
 }
