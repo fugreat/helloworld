@@ -12,7 +12,7 @@
 #include <algorithm>
 
 /**
- * @brief World private implementation
+ * World private implementation
  *
  * Using pimpl pattern allows private implementation to change in future
  * without requiring a recompile of hello since include file doesn't change.
@@ -23,27 +23,26 @@ class World_pimpl {
   std::string s;
 };
 
-World::World(void) {
-  worldp = new World_pimpl;
+World::World(void) : worldp_(new World_pimpl) {
 }
 
 World::~World(void) {
-  delete worldp;
+  delete worldp_;
 }
 
 World::World(const World &other) {
-  worldp = new World_pimpl;
-  *worldp = *other.worldp;
+  worldp_ = new World_pimpl;
+  *worldp_ = *other.worldp_;
 }
 
 World& World::operator=(const World &other) {
   if (this != &other) {
     World tmp(other);
-    std::swap(worldp, tmp.worldp);
+    std::swap(worldp_, tmp.worldp_);
   }
   return *this;
 }
 
-std::string World::get_world(void) const {
-  return worldp->s;
+std::string World::GetWorld(void) const {
+  return worldp_->s;
 }

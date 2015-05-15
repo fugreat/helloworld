@@ -13,8 +13,10 @@
 #include <algorithm>
 #include "world/world.h"
 
+namespace hello {
+
 /**
- * @brief Hello private implementation
+ * Hello private implementation
  */
 class Hello_pimpl {
  public:
@@ -22,31 +24,32 @@ class Hello_pimpl {
   World w;
 };
 
-Hello::Hello(void) {
-  hellop = new Hello_pimpl;
+Hello::Hello(void) : hellop_(new Hello_pimpl) {
 }
 
 Hello::~Hello(void) {
-  delete hellop;
+  delete hellop_;
 }
 
 Hello::Hello(const Hello &other) {
-  hellop = new Hello_pimpl;
-  *hellop = *other.hellop;
+  hellop_ = new Hello_pimpl;
+  *hellop_ = *other.hellop_;
 }
 
 Hello& Hello::operator=(const Hello &other) {
   if (this != &other) {
     Hello tmp(other);
-    std::swap(hellop, tmp.hellop);
+    std::swap(hellop_, tmp.hellop_);
   }
   return *this;
 }
 
-std::string Hello::get_hello(void) const {
+std::string Hello::GetHello(void) const {
   std::string s;
 
-  s = "Hello, "+ hellop->w.get_world() + "!\n";
+  s = "Hello, "+ hellop_->w.GetWorld() + "!\n";
 
   return s;
 }
+
+}  // namespace hello
