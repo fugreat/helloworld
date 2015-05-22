@@ -74,6 +74,9 @@ AC_PROG_CPP
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 
+dnl Enable C++11 with GNU extensions when avialable.
+AX_CXX_COMPILE_STDCXX_11([], [optional])
+
 dnl Add variable to increase compiler warnings for use by Makefile's. This
 dnl is not added to global *FLAGS so it can be adjusted per application/library.
 dnl If added globally, it tends to be immediately disabled for project at
