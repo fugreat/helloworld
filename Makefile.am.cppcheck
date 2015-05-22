@@ -1,9 +1,9 @@
 CPPCHECK = cppcheck
 
 cppcheck:
-	$(CPPCHECK) --enable=warning,style,unusedFunction --template=gcc $(AM_CPPFLAGS) $(srcdir)/src $(srcdir)/include
+	$(CPPCHECK) --enable=warning,style,unusedFunction --template=gcc $(AM_CPPFLAGS) $(srcdir)/src
 
 cppcheck-xml:
-	$(CPPCHECK) --enable=warning,style,unusedFunction $(AM_CPPFLAGS) --xml-version=2 --xml $(srcdir)/src $(srcdir)/include 2> cppcheck.xml
+	$(CPPCHECK) --enable=warning,style,unusedFunction $(AM_CPPFLAGS) --xml-version=2 --xml $(srcdir)/src 2> cppcheck.xml
 
 CPPCHECK_CLEANFILES = cppcheck.xml
