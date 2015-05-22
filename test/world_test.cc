@@ -13,7 +13,7 @@ TEST_F(World_test, copy)
     World w1;
     World w2(w1);
 
-    std::string s = w2.get_world();
+    std::string s = w2.GetWorld();
 
     ASSERT_EQ(s, "World");
 }
@@ -30,10 +30,10 @@ TEST_F(World_test, assign)
     ASSERT_EQ(&(w1 = w1), &w1);
 }
 
-TEST_F(World_test, get_world)
+TEST_F(World_test, GetWorld)
 {
     World w;
-    std::string s = w.get_world();
+    std::string s = w.GetWorld();
 
     ASSERT_EQ(s, "World");
 }
