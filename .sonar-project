@@ -9,6 +9,7 @@ sonar.useless-code-tracker.enabled=true
 sonar.build-stability.url=Jenkins:http://rtx-swtl-ci.fnc.net.local/job/helloworld
 sonar.cxx.includeDirectories=src
 sonar.cxx.cppcheck.reportPath=cppcheck.xml
+sonar.cxx.other.reportPath=cpplint.xml
 sonar.cxx.compiler.parser=GCC
 sonar.cxx.compiler.reportPath=buildlog.txt
 sonar.cxx.xunit.reportPath=test/*-gtest.xml
