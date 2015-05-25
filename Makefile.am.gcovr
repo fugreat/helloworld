@@ -1,9 +1,24 @@
-GCOVR = gcovr
+GCOV = @GCOV@
+GCOVR = @GCOVR@
 
 gcovr:
-	$(GCOVR) -r . -e test
+if GCOV_ENABLED
+	$(GCOVR) --gcov-executable=$(GCOV) -r . -e test
+else
+	@echo "Need to reconfigure with --enable-gcov"
+endif
+
+GCOVR_XML_FILE = coverage.xml
 
 gcovr-xml:
-	$(GCOVR) -r . -e test --xml-pretty > coverage.xml
+if GCOV_ENABLED
+	$(GCOVR) --gcov-executable=$(GCOV) -r . -e test --xml-pretty > $(GCOVR_XML_FILE)
+else
+	@echo "Need to reconfigure with --enable-gcov"
+endif
 
-GCOVR_CLEANFILES = coverage.xml
+GCOVR_CLEANFILES = $(GCOVR_XML_FILE)
+
+gcov-clean:
+	-rm -f $(GCOVR_CLEANFILES)
+	-find . -name "*.gcda" -delete

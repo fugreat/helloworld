@@ -115,27 +115,7 @@ AS_IF([test "x$have_valgrind" = "xyes"],
       [VALGRINDOPT="--enable-valgrind"])
 AC_SUBST(VALGRINDOPT)
 
-dnl Enable gcov code coverage compiler options. This is useful for testing both
-dnl host based compiles and cross compiles.  Since code coverage tests need
-dnl to disable compiler optimization, this should not be used in shipping
-dnl product.
-AC_ARG_ENABLE(gcov,
-	      AS_HELP_STRING([--enable-gcov],
-			     [Enable gcov code coverage support.]))
-
-AS_IF([test "x$enable_gcov" = "xyes"],
-      [
-       AS_IF([test "$GCC" != "yes"],
-	     AC_MSG_ERROR([gcov enabled but compiler is not gcc.]))
-       dnl Optimizations will defeat code coverage so remove those.
-       changequote({,})
-       CFLAGS=`echo "$CFLAGS" | sed -e 's/-O[0-9]*//g'`
-       CXXFLAGS=`echo "$CXXFLAGS" | sed -e 's/-O[0-9]*//g'`
-       changequote([,])
-       CFLAGS="$CFLAGS -O0 -fprofile-arcs -ftest-coverage"
-       CXXFLAGS="$CXXFLAGS -O0 -fprofile-arcs -ftest-coverage"
-       LDFLAGS="$LDFLAGS -lgcov"
-       ])
+AX_GCOVR()
 
 DX_MAN_FEATURE(ON)
 DX_INIT_DOXYGEN([$PACKAGE_NAME], [doxygen.cfg])
