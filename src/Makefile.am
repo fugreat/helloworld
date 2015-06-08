@@ -23,4 +23,4 @@ nobase_include_HEADERS = world/world.h
 # See automake for how to set compiler flags per library
 libworld_la_SOURCES = world/world.cc
 
-DISTCLEANFILES = *.gcov *.gcda *.gcno
+DISTCLEANFILES = *.gcov *.gcda *.gcno world/*.gcov world/*.gcda world/*.gcno

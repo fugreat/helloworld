@@ -3,7 +3,7 @@ GCOVR = @GCOVR@
 
 gcovr:
 if GCOV_ENABLED
-	$(GCOVR) --gcov-executable=$(GCOV) -r . -e test
+	(cd src && $(GCOVR) --gcov-executable=$(GCOV) `readlink -f $(abs_top_builddir)/src` -r `readlink -f $(abs_top_srcdir)/src` --filter=`readlink -f $(abs_top_srcdir)/src`)
 else
 	@echo "Need to reconfigure with --enable-gcov"
 endif
@@ -12,7 +12,7 @@ GCOVR_XML_FILE = coverage.xml
 
 gcovr-xml:
 if GCOV_ENABLED
-	$(GCOVR) --gcov-executable=$(GCOV) -r . -e test --xml-pretty > $(GCOVR_XML_FILE)
+	(cd src && $(GCOVR) --gcov-executable=$(GCOV) `readlink -f $(abs_top_builddir)/src` -r `readlink -f $(abs_top_srcdir)/src` --filter=`readlink -f $(abs_top_srcdir)/src` --xml-pretty > $(abs_top_builddir)/$(GCOVR_XML_FILE))
 else
 	@echo "Need to reconfigure with --enable-gcov"
 endif
