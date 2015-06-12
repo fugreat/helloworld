@@ -13,6 +13,8 @@ GCOVR_XML_FILE = coverage.xml
 gcovr-xml:
 if GCOV_ENABLED
 	(cd src && $(GCOVR) --gcov-executable=$(GCOV) `readlink -f $(abs_top_builddir)/src` -r `readlink -f $(abs_top_srcdir)/src` --filter=`readlink -f $(abs_top_srcdir)/src` --xml-pretty > $(abs_top_builddir)/$(GCOVR_XML_FILE))
+	sed -i "s|<source>.*</source>|<source>"`readlink -f $(abs_top_srcdir)`"</source>|" coverage.xml
+	sed -i 's/filename="/filename="src\//g' coverage.xml
 else
 	@echo "Need to reconfigure with --enable-gcov"
 endif
