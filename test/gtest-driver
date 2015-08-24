@@ -27,7 +27,7 @@ done
 
 eval last=\${$#}
 
-logname=`/bin/basename $last`
+logname=`basename $last`
 
 valgrind_cmd=""
 if [ "${enable_valgrind}x" = "yesx" ]; then
