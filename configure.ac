@@ -46,6 +46,8 @@ dnl Default ismaintainer-mode enabled *but* without --disable-maintainer-mode
 dnl arg. Calling AM_MAINTAINER_MODE enables by default and adds arg to disable.
 AM_MAINTAINER_MODE([enable])
 
+AM_EXTRA_RECURSIVE_TARGETS([check-xml])
+
 dnl General flow a configure script should take:
 dnl
 dnl * Check for installed programs

@@ -41,6 +41,7 @@ be removed for most usecases of 'make install-strip'.
 
 The following unit test related targets exist.  They run unit tests using
 automake's test framework and display code coverage reports on the terminal.
+Unit tests create log files that can be reviewed for failure details.
 
     $ make check
     $ make gcovr
@@ -62,11 +63,13 @@ a build.
     $ make analyze
 
 The following targets exist that are useful when used with automation
-tools such as Jenkins and SonarQube. They generate Cobertura compatible XML
-from gcov data, dumps cppcheck's data to its own XML format, converts
-cpplint.py's output to checkstyle compatible XML, and dumps flexelint to its
-own XML format.
+tools such as Jenkins and SonarQube. They generate gtest results in
+its own XML format, Valgrind results in its own XML format,
+Cobertura compatible XML from gcov data, cppcheck's data to its own XML
+format, converts cpplint.py's output to checkstyle compatible XML, and dumps
+flexelint to its own XML format.
 
+    $ make check-xml
     $ make gcovr-xml
     $ make cppcheck-xml
     $ make cpplint-xml

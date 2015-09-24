@@ -6,9 +6,9 @@ SUBDIRS = src test
 # templates.
 EXTRA_DIST = autogen.sh README.md README-autotools.md $(DX_CONFIG)
 
-SONAR_PREPARE = cppcheck-xml cpplint-xml gcovr-xml
+SONAR_PREPARE = check-xml cppcheck-xml cpplint-xml gcovr-xml
 
-analyze: cppcheck cpplint flint
+analyze: cppcheck cpplint
 
 $(man3_MANS): doxygen-doc
 
