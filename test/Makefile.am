@@ -7,7 +7,7 @@ TESTS = helloworld_unittest$(EXEEXT)
 # List of targets to build as part of 'make check' target.  These are not
 # installed.
 check_PROGRAMS = $(TESTS)
-TESTS_ENVIRONMENT = $(srcdir)/gtest-driver $(VALGRINDOPT) --
+LOG_COMPILER = $(srcdir)/gtest-driver $(VALGRINDOPT) --
 
 helloworld_unittest_SOURCES = helloworld_unittest.cc hello_test.cc \
 			      world_test.cc gtest/gtest-all.cc gtest/gtest.h
