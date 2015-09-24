@@ -66,8 +66,8 @@ AC_DEFUN([AX_GCOVR],[
 		CFLAGS=`echo "$CFLAGS" | sed -e 's/-O[0-9]*//g'`
 		CXXFLAGS=`echo "$CXXFLAGS" | sed -e 's/-O[0-9]*//g'`
 		changequote([,])
-		CFLAGS="$CFLAGS -O0 -fprofile-arcs -ftest-coverage"
-		CXXFLAGS="$CXXFLAGS -O0 -fprofile-arcs -ftest-coverage"
+		CFLAGS="$CFLAGS -O0 -fprofile-arcs -ftest-coverage -fno-inline -fno-inline-small-functions"
+		CXXFLAGS="$CXXFLAGS -O0 -fprofile-arcs -ftest-coverage -fno-inline -fno-inline-small-functions -fno-default-inline"
 		LDFLAGS="$LDFLAGS -lgcov"
 	])
 

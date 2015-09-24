@@ -9,7 +9,7 @@
  * Document Reference :
  */
 
-#include "hello.h"
+#include "hello.h"  // NOLINT(build/include)
 #include <algorithm>
 #include "world/world.h"
 

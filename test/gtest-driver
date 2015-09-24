@@ -35,7 +35,6 @@ if [ "${enable_valgrind}x" = "yesx" ]; then
     valgrind_cmd="valgrind --quiet --leak-check=full --error-exitcode=1 --xml=yes --xml-file=${logname}-valgrind.xml"
 fi
 /bin/rm -f ${logname}-gtest.xml
-echo HELP
 echo ${valgrind_cmd} $* --gtest_output=xml:${logname}-gtest.xml
 ${valgrind_cmd} $* --gtest_output=xml:${logname}-gtest.xml
 exit $?
