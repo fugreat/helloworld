@@ -22,6 +22,6 @@ helloworld_unittest_LDADD = $(top_builddir)/src/hello.$(OBJEXT) \
 		   $(top_builddir)/src/world/world.$(OBJEXT)
 helloworld_unittest_LDFLAGS = -no-install
 
-MOSTLYCLEANFILES = *.gcda *.gcno *-gtest.xml
+MOSTLYCLEANFILES = *.gcda *.gcno
 MOSTLYCLEANFILES += gtest/*.gcda gtest/*.gcno
 DISTCLEANFILES = *-gtest.xml *-valgrind.xml
