@@ -53,7 +53,6 @@ with the issues found.
 
     $ make cppcheck
     $ make cpplint
-    $ make flint
 
 In vim use ':make analyze' to run all possible static analysis targets and
 populate its quickfix list with the results. Eclipse's Problem window
@@ -99,7 +98,6 @@ The above targets will produce the following files:
  * cppcheck.xml
  * cpplint.txt
  * cpplint.xml
- * flint.xml
  * .sonar/issues-report/issues-report.html
  * doxygen-doc/*.pdf
  * doxygen-doc/html
