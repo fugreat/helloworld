@@ -73,14 +73,20 @@ flexelint to its own XML format.
     $ make gcovr-xml
     $ make cppcheck-xml
     $ make cpplint-xml
-    $ make flint-xml
 
-'sonar-prepare' will run all previous XML targets in preperation for interacting
-with SonarQube. 'sonar-incremental' will also generate that data and create an
-incremental issues report.
+The following 'sonar-prepare' is a convenience target that runs all previous
+XML targets.
+
+    $ make sonar-prepare
+
+'sonar-incremental' will run sonar-prepare and also generate
+an incremental issues HTML report that covers only modified files.
+'sonar-preview' will run sonar-prepare and also generate a full issue HTML
+report which can be filtered for only new items.
 
     $ make sonar-prepare
     $ make sonar-incremental
+    $ make sonar-preview
 
 The above targets will produce the following files:
 
