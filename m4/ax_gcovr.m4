@@ -40,7 +40,7 @@ AC_DEFUN([AX_GCOVR],[
 	  enable_gcov=no)
 
 	AM_CONDITIONAL([GCOV_ENABLED], [test x$enable_gcov = xyes])
-	AC_SUBST([GCOVR_ENABLED], [$enable_gcov])
+	AC_SUBST([GCOV_ENABLED], [$enable_gcov])
 	AC_MSG_RESULT($enable_code_coverage)
 
 	AS_IF([ test "$enable_gcov" = "yes" ], [
