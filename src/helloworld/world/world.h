@@ -36,6 +36,7 @@ class World {
   /**
    * get World string
    * @retval string "World"
+   * @example world_test.cc
    */
   std::string GetWorld(void) const;
 

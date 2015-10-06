@@ -43,6 +43,7 @@ class Hello {
   /**
    * get Hello string
    * @retval string "Hello, World!\n".
+   * @example hello_test.cc
    */
   std::string GetHello(void) const;
 
