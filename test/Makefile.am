@@ -18,8 +18,8 @@ helloworld_unittest_SOURCES = helloworld_unittest.cc hello_test.cc \
 # Note build directory and srcdir do not have to be same place.  This is how
 # to support a single copy of source code used to cross compile to multiple
 # hosts.
-helloworld_unittest_LDADD = $(top_builddir)/src/hello.$(OBJEXT) \
-		   $(top_builddir)/src/world/world.$(OBJEXT)
+helloworld_unittest_LDADD = $(top_builddir)/src/helloworld/hello.$(OBJEXT) \
+		   $(top_builddir)/src/helloworld/world/world.$(OBJEXT)
 helloworld_unittest_LDFLAGS = -no-install
 
 MOSTLYCLEANFILES = *.gcda *.gcno

@@ -9,9 +9,9 @@
  * Document Reference :
  */
 
-#include "hello.h"  // NOLINT(build/include)
+#include "helloworld/hello.h"
 #include <algorithm>
-#include "world/world.h"
+#include "helloworld/world/world.h"
 
 namespace hello {
 

@@ -124,7 +124,7 @@ http://www.gnu.org/software/automake/manual/html_node/Other-Objects.html
 If a program was added to bin_PROGRAMS then lines need to be added that
 describes both source code and libraries to compile and link into the program.
 
-    hello_SOURCES = hell.cc hello.h main.cc
+    hello_SOURCES = helloworld/hello.cc helloworld/hello.h main.cc
     hello_LDADD = libworld.la
 
 In addtion to \_SOURCES and \_LDADD, \_CPPFLAGS, \_CXXFLAGS, and \_LDFLAGS
@@ -137,7 +137,7 @@ If a library was added to either lib_LTLIBRARIES list or to an programs
 \_LDADD list then lines need to be added that describes source code to
 compile and add to library.
 
-    libworld_la_SOURCES = world/world.cc 
+    libworld_la_SOURCES = helloworld/world/world.cc
 
 In addtion to \_SOURCES, \_LIBADD, \_CPPFLAGS, \_CXXFLAGS, and \_LDFLAGS
 can be specified. Any AM\_{LIBADD|CPPFLAGS|CXXFLAGS|LDFLAGS} will be lost in
@@ -162,7 +162,7 @@ to describe source code and libraries to compile and link into program.
 Make use of '$(top_builddir)/src' prefix to link in object files compiled
 under src directory.
 
-    helloworld_unittest_SOURCE = hellworld_unittest.cc hello_test.cc \\
+    helloworld_unittest_SOURCE = helloworld_unittest.cc hello_test.cc \\
                                 gtest/gtest-all.cc gtest/gtest.h
-    hellworld_unittest_LDADD = $(top_builddir)/src/hello.$(OBJEXT)
+    hellworld_unittest_LDADD = $(top_builddir)/src/helloworld/hello.$(OBJEXT)
     hellworld_unitest_LDFLAGS = -no-install

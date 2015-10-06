@@ -46,9 +46,8 @@ AC_DEFUN([AX_GCOVR],[
 	AS_IF([ test "$enable_gcov" = "yes" ], [
 		AC_ARG_VAR([GCOV], [gcov command])
 		AC_CHECK_TOOL([GCOV], gcov, [:])
-		AS_IF([test "X$GCOV" = "X"],
+		AS_IF([test "X$GCOV" = "X:"],
 		  [AC_MSG_ERROR([gcov is needed to do coverage])])
-		AC_SUBST([GCOV])
 
 		dnl Check if gcc is being used
 		AS_IF([ test "$GCC" = "no" ], [

@@ -9,7 +9,7 @@
  * Document Reference :
  */
 #include <iostream>
-#include "hello.h"  // NOLINT(build/include)
+#include "helloworld/hello.h"
 
 int main(int argc, const char *argv[]) {
   (void)argc;

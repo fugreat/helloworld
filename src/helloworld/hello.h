@@ -8,13 +8,18 @@
  *
  * Document Reference :
  */
-
-#ifndef HELLO_H_
-#define HELLO_H_
+#ifndef HELLOWORLD_HELLO_H_
+#define HELLOWORLD_HELLO_H_
 
 #include <string>
 
 namespace hello {
+
+/**
+ * @addtogroup internal
+ * Hello Internal Interfaces
+ * @{
+ */
 
 class Hello_pimpl;
 
@@ -51,6 +56,9 @@ class Hello {
   Hello_pimpl* hellop_;
 };
 
-}  // namespace hello
+/**
+ * @}
+ */
 
-#endif  // HELLO_H_
+}  // namespace hello
+#endif  // HELLOWORLD_HELLO_H_

@@ -8,11 +8,16 @@
  *
  * Document Reference :
  */
-
-#ifndef WORLD_WORLD_H_
-#define WORLD_WORLD_H_
+#ifndef HELLOWORLD_WORLD_WORLD_H_
+#define HELLOWORLD_WORLD_WORLD_H_
 
 #include <string>
+
+/**
+ * @addtogroup external
+ * World External Interfaces
+ * @{
+ */
 
 class World_pimpl;
 
@@ -38,4 +43,8 @@ class World {
   World_pimpl *worldp_;
 };
 
-#endif  // WORLD_WORLD_H_
+/**
+ * @}
+ */
+
+#endif  // HELLOWORLD_WORLD_WORLD_H_
