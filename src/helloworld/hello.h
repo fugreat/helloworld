@@ -13,7 +13,7 @@
 
 #include <string>
 
-namespace hello {
+namespace helloworld {
 
 /**
  * @addtogroup internal
@@ -61,5 +61,5 @@ class Hello {
  * @}
  */
 
-}  // namespace hello
+}  // namespace helloworld
 #endif  // HELLOWORLD_HELLO_H_

@@ -11,6 +11,9 @@
 #include "helloworld/world/world.h"
 #include <algorithm>
 
+namespace helloworld {
+namespace world {
+
 /**
  * World private implementation
  *
@@ -46,3 +49,6 @@ World& World::operator=(const World &other) {
 std::string World::GetWorld(void) const {
   return worldp_->s;
 }
+
+} // world
+} // helloworld

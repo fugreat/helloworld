@@ -13,6 +13,9 @@
 
 #include <string>
 
+namespace helloworld {
+namespace world {
+
 /**
  * @addtogroup external
  * World External Interfaces
@@ -47,5 +50,8 @@ class World {
 /**
  * @}
  */
+
+}  // namespace world
+}  // namespace helloworld
 
 #endif  // HELLOWORLD_WORLD_WORLD_H_

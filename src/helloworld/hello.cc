@@ -13,7 +13,7 @@
 #include <algorithm>
 #include "helloworld/world/world.h"
 
-namespace hello {
+namespace helloworld {
 
 /**
  * Hello private implementation
@@ -21,7 +21,7 @@ namespace hello {
 class Hello_pimpl {
  public:
   Hello_pimpl(void) {}
-  World w;
+  helloworld::world::World w;
 };
 
 Hello::Hello(void) : hellop_(new Hello_pimpl) {
@@ -52,4 +52,4 @@ std::string Hello::GetHello(void) const {
   return s;
 }
 
-}  // namespace hello
+}  // namespace helloworld

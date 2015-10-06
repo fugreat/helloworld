@@ -9,8 +9,8 @@ class Hello_test : public ::testing::Test {
 };
 
 TEST_F(Hello_test, copy) {
-  hello::Hello h1;
-  hello::Hello h2(h1);
+  helloworld::Hello h1;
+  helloworld::Hello h2(h1);
 
   std::string s = h2.GetHello();
 
@@ -18,8 +18,8 @@ TEST_F(Hello_test, copy) {
 }
 
 TEST_F(Hello_test, assign) {
-  hello::Hello h1;
-  hello::Hello h2;
+  helloworld::Hello h1;
+  helloworld::Hello h2;
 
   // Return type of assignment operator is current object by reference.
   ASSERT_EQ(&(h2 = h1), &h2);
@@ -29,7 +29,7 @@ TEST_F(Hello_test, assign) {
 }
 
 TEST_F(Hello_test, hello) {
-  hello::Hello h;
+  helloworld::Hello h;
   std::string s = h.GetHello();
 
   ASSERT_EQ(s, "Hello, World!\n");

@@ -10,8 +10,8 @@ class World_test : public ::testing::Test {
 
 TEST_F(World_test, copy)
 {
-    World w1;
-    World w2(w1);
+    helloworld::world::World w1;
+    helloworld::world::World w2(w1);
 
     std::string s = w2.GetWorld();
 
@@ -20,8 +20,8 @@ TEST_F(World_test, copy)
 
 TEST_F(World_test, assign)
 {
-    World w1;
-    World w2;
+    helloworld::world::World w1;
+    helloworld::world::World w2;
 
     // Return type of assignment operator is current object by reference.
     ASSERT_EQ(&(w2 = w1), &w2);
@@ -32,7 +32,7 @@ TEST_F(World_test, assign)
 
 TEST_F(World_test, GetWorld)
 {
-    World w;
+    helloworld::world::World w;
     std::string s = w.GetWorld();
 
     ASSERT_EQ(s, "World");
