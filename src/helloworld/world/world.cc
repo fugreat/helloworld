@@ -50,5 +50,5 @@ std::string World::GetWorld(void) const {
   return worldp_->s;
 }
 
-} // world
-} // helloworld
+}  // namespace world
+}  // namespace helloworld
