@@ -1,6 +1,6 @@
 sonar.projectKey=helloworld
 sonar.projectName=helloworld
-sonar.projectVersion=1
+sonar.projectVersion=1.0
 sonar.language=c++
 sonar.sources=src
 sonar.sourceEncoding=UTF-8
