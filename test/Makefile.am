@@ -19,7 +19,7 @@ helloworld_unittest_SOURCES = helloworld_unittest.cc hello_test.cc \
 # to support a single copy of source code used to cross compile to multiple
 # hosts.
 helloworld_unittest_LDADD = $(top_builddir)/src/helloworld/hello.$(OBJEXT) \
-		   $(top_builddir)/src/helloworld/world/world.$(OBJEXT)
+		   $(top_builddir)/src/libworld.la
 helloworld_unittest_LDFLAGS = -no-install
 
 MOSTLYCLEANFILES = *.gcda *.gcno
