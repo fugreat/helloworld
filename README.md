@@ -87,6 +87,12 @@ report which can be filtered for only new items.
     $ make sonar-incremental
     $ make sonar-preview
 
+Code Coverage can also be generated in HTML format in either a single HTML
+page or multiple HTML pages.
+
+    $ make gcovr-html
+    $ make gcovr-html-detail
+
 The above targets will produce the following files:
 
  * src/hello
@@ -94,7 +100,9 @@ The above targets will produce the following files:
  * test/helloworld_unittest.log
  * test/helloworld_unittest-gtest.xml
  * test/helloworld_unittest-valgrind.xml
+ * coverage.html
  * coverage.xml
+ * coverage-html/*.html
  * cppcheck.xml
  * cpplint.txt
  * cpplint.xml
