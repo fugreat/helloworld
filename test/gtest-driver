@@ -27,13 +27,19 @@ while test $# -gt 0; do
 done
 
 eval last=\${$#}
-
+dirname=`dirname $last`
 logname=`basename $last`
 
 valgrind_cmd=""
 if [ "${enable_valgrind}x" = "yesx" ]; then
     /bin/rm -f ${logname}-valgrind.xml
-    valgrind_cmd="valgrind --leak-check=full --error-exitcode=1"
+    valgrind_cmd="valgrind --leak-check=full --gen-suppressions=all --error-exitcode=1"
+    if [ -f ${dirname}/default.supp ]; then
+      valgrind_cmd="${valgrind_cmd} --suppressions=${dirname}/default.supp"
+    fi
+    if [ -f ${dirname}/${logname}.supp ]; then
+      valgrind_cmd="${valgrind_cmd} --suppressions=${dirname}/${logname}.supp"
+    fi
     if [ "${enable_xml}x" = "yesx" ]; then
       /bin/rm -f ${logname}-valgrind.xml
       valgrind_cmd="${valgrind_cmd} --xml=yes --xml-file=${logname}-valgrind.xml"
