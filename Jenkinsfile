@@ -43,3 +43,4 @@ try {
   // TODO: Notify Stash Instance
   step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: '', sendToIndividuals: true])
 }
+}
