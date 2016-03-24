@@ -13,7 +13,7 @@ try {
   stage 'Build and Test'
   // Same as .travis.yml's script step
 
-  checkout scm
+  //checkout scm
   //checkout scm:[$class: 'GitSCM', url: 'ssh://git@rtx-swtl-git.fnc.net.local:7999/iprepo/helloworld.git']
   sh '''set -o pipefail
       source ${REPO_HOME}/etc/profile.d/repo.sh
