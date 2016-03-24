@@ -10,7 +10,7 @@ node('ut') {
 
   stage 'Build and Test'
   // Same as .travis.yml's script step
-  checkout scm:[$class: 'GitSCM', url: 'ssh://git@rtx-swtl-git.fnc.net.local:7999/iprepo/helloworld.git']]]
+  checkout scm:[$class: 'GitSCM', url: 'ssh://git@rtx-swtl-git.fnc.net.local:7999/iprepo/helloworld.git']
   sh 'set -o pipefail
       source ${REPO_HOME}/etc/profile.d/repo.sh
       if [ -d /local/gcc/4.8.2/bin ]; then
