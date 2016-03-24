@@ -30,10 +30,10 @@ node('ut') {
   // TODO: Publish Cobertura Coverage Report
   // TODO: Publish Cppcheck results
   // TODO: Invoke Standalone SonarQube Analysis
-  step([$class: 'XUnitPublisher', tools: [[$class: 'GoogleTestType', deleteOutputFiles: true, failIfNotNew: true, pattern: '**/*-gtest.xml', skipNoTestFiles: false, stopProcessingIfError: true]]])
+  //step([$class: 'XUnitPublisher', tools: [[$class: 'GoogleTestType', deleteOutputFiles: true, failIfNotNew: true, pattern: '**/*-gtest.xml', skipNoTestFiles: false, stopProcessingIfError: true]]])
   // TODO: Update relevant JIRA issues
   // TODO: Notify Stash Instance
-  step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: '', sendToIndividuals: true])
+  //step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: '', sendToIndividuals: true])
 
   stage 'Deploy'
   // Same as .travis.yml's deploy step
