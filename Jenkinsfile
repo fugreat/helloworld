@@ -1,5 +1,6 @@
 #!groovy
 node('ut') {
+try {
   stage 'Install Dependencies'
   // Same as .travis.yml's install step
 
@@ -26,15 +27,19 @@ node('ut') {
       make cpplint 2>&1 | tee cpplint.txt
       make sonar-prepare'''
 
-  step([$class: 'WarningsPublisher', parserConfigurations: [[parserName: 'GNU Make + GNU C Compiler (gcc)', pattern: '**/buildlog.txt']]])
+  // TODO: Invoke Standalone SonarQube Analysis
   // TODO: Publish Cobertura Coverage Report
   // TODO: Publish Cppcheck results
-  // TODO: Invoke Standalone SonarQube Analysis
   //step([$class: 'XUnitPublisher', tools: [[$class: 'GoogleTestType', deleteOutputFiles: true, failIfNotNew: true, pattern: '**/*-gtest.xml', skipNoTestFiles: false, stopProcessingIfError: true]]])
-  // TODO: Update relevant JIRA issues
-  // TODO: Notify Stash Instance
-  //step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: '', sendToIndividuals: true])
 
   stage 'Deploy'
   // Same as .travis.yml's deploy step
+} catch (caughtError) {
+  err = caughtError
+  currentBuild.result = "FAILURE"
+} finally {
+  step([$class: 'WarningsPublisher', parserConfigurations: [[parserName: 'GNU Make + GNU C Compiler (gcc)', pattern: '**/buildlog.txt']]])
+  // TODO: Update relevant JIRA issues
+  // TODO: Notify Stash Instance
+  step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: '', sendToIndividuals: true])
 }
